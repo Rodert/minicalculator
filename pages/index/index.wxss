@@ -132,11 +132,11 @@
   text-align: left;
   font-weight: 300;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
   width: 100%;
   padding-left: 10rpx;
   box-sizing: border-box;
+  word-break: break-all;
 }
 
 .no-history {
@@ -152,7 +152,16 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 20rpx 40rpx;
+  padding: 20rpx 20rpx 20rpx 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.result-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .result-text {
@@ -160,6 +169,9 @@
   color: #ffffff;
   text-align: right;
   font-weight: 300;
+  white-space: nowrap;
+  overflow: visible;
+  min-width: 0;
 }
 
 /* 按钮区域 */

@@ -30,7 +30,9 @@
   
   <!-- 显示结果区域 -->
   <view class="result-container">
-    <text class="result-text">{{result}}</text>
+    <view class="result-wrapper">
+      <text class="result-text">{{result}}</text>
+    </view>
   </view>
   
   <!-- 按钮区域 -->
