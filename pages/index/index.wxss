@@ -1,0 +1,79 @@
+/**index.wxss**/
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  padding: 0;
+}
+
+/* 结果显示区域 */
+.result-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 20rpx 40rpx;
+}
+
+.result-text {
+  font-size: 120rpx;
+  color: #ffffff;
+  text-align: right;
+  font-weight: 300;
+}
+
+/* 按钮区域 */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40rpx;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding: 0 20rpx;
+}
+
+.button {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10rpx;
+}
+
+.button text {
+  font-size: 48rpx;
+  font-weight: 400;
+}
+
+/* 数字按钮 */
+.number-button {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* 功能按钮 */
+.function-button {
+  background-color: #a5a5a5;
+  color: #000000;
+}
+
+/* 操作符按钮 */
+.operator-button {
+  background-color: #ff9f0a;
+  color: #ffffff;
+}
+
+/* 0按钮特殊样式 */
+.zero-button {
+  width: 320rpx;
+  border-radius: 75rpx;
+  justify-content: flex-start;
+  padding-left: 50rpx;
+} 

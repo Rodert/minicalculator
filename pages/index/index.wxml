@@ -1,0 +1,87 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 显示结果区域 -->
+  <view class="result-container">
+    <text class="result-text">{{result}}</text>
+  </view>
+  
+  <!-- 按钮区域 -->
+  <view class="buttons-container">
+    <!-- 第一行 -->
+    <view class="button-row">
+      <view class="button function-button" bindtap="tapOperator" data-operator="AC">
+        <text>AC</text>
+      </view>
+      <view class="button function-button" bindtap="tapOperator" data-operator="+/-">
+        <text>+/-</text>
+      </view>
+      <view class="button function-button" bindtap="tapOperator" data-operator="%">
+        <text>%</text>
+      </view>
+      <view class="button operator-button" bindtap="tapOperator" data-operator="÷">
+        <text>÷</text>
+      </view>
+    </view>
+    
+    <!-- 第二行 -->
+    <view class="button-row">
+      <view class="button number-button" bindtap="tapNumber" data-number="7">
+        <text>7</text>
+      </view>
+      <view class="button number-button" bindtap="tapNumber" data-number="8">
+        <text>8</text>
+      </view>
+      <view class="button number-button" bindtap="tapNumber" data-number="9">
+        <text>9</text>
+      </view>
+      <view class="button operator-button" bindtap="tapOperator" data-operator="×">
+        <text>×</text>
+      </view>
+    </view>
+    
+    <!-- 第三行 -->
+    <view class="button-row">
+      <view class="button number-button" bindtap="tapNumber" data-number="4">
+        <text>4</text>
+      </view>
+      <view class="button number-button" bindtap="tapNumber" data-number="5">
+        <text>5</text>
+      </view>
+      <view class="button number-button" bindtap="tapNumber" data-number="6">
+        <text>6</text>
+      </view>
+      <view class="button operator-button" bindtap="tapOperator" data-operator="-">
+        <text>-</text>
+      </view>
+    </view>
+    
+    <!-- 第四行 -->
+    <view class="button-row">
+      <view class="button number-button" bindtap="tapNumber" data-number="1">
+        <text>1</text>
+      </view>
+      <view class="button number-button" bindtap="tapNumber" data-number="2">
+        <text>2</text>
+      </view>
+      <view class="button number-button" bindtap="tapNumber" data-number="3">
+        <text>3</text>
+      </view>
+      <view class="button operator-button" bindtap="tapOperator" data-operator="+">
+        <text>+</text>
+      </view>
+    </view>
+    
+    <!-- 第五行 -->
+    <view class="button-row">
+      <view class="button number-button zero-button" bindtap="tapNumber" data-number="0">
+        <text>0</text>
+      </view>
+      <view class="button number-button" bindtap="tapOperator" data-operator=".">
+        <text>.</text>
+      </view>
+      <view class="button operator-button" bindtap="tapOperator" data-operator="=">
+        <text>=</text>
+      </view>
+    </view>
+  </view>
+</view> 
