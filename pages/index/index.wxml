@@ -1,5 +1,33 @@
 <!--pages/index/index.wxml-->
-<view class="container">
+<view class="container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+  <!-- 历史记录面板 -->
+  <view class="history-panel {{showHistory ? 'show' : ''}}">
+    <view class="history-title">
+      <text>历史记录</text>
+      <view class="history-actions">
+        <view class="clear-history" catchtap="clearHistory">清除</view>
+        <view class="close-history" catchtap="hideHistory">关闭</view>
+      </view>
+    </view>
+    <scroll-view scroll-y class="history-list" enhanced="true" bounces="true" show-scrollbar="false">
+      <block wx:if="{{historyList.length > 0}}">
+        <view class="history-item" wx:for="{{historyList}}" wx:key="index" catchtap="useHistoryItem" data-index="{{index}}">
+          <view class="history-content">
+            <view class="history-expression">{{item.expression}} =</view>
+            <view class="history-result">{{item.result}}</view>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="no-history">暂无历史记录</view>
+    </scroll-view>
+  </view>
+  
+  <!-- 下拉提示 -->
+  <view class="pull-indicator {{pulling ? 'pulling' : ''}}">
+    <view class="indicator-line"></view>
+    <view class="indicator-arrow"></view>
+  </view>
+  
   <!-- 显示结果区域 -->
   <view class="result-container">
     <text class="result-text">{{result}}</text>

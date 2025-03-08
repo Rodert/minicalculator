@@ -5,6 +5,145 @@
   flex-direction: column;
   background-color: #000000;
   padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 下拉提示 */
+.pull-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.pull-indicator.pulling {
+  opacity: 1;
+}
+
+.indicator-line {
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #666;
+  border-radius: 2rpx;
+  margin-top: 8rpx;
+}
+
+.indicator-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-bottom: 10rpx solid #666;
+  margin-top: -2rpx;
+}
+
+/* 历史记录面板 */
+.history-panel {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 50%;
+  max-height: 600rpx;
+  background-color: rgba(30, 30, 30, 0.95);
+  z-index: 100;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.3);
+  transition: top 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-panel.show {
+  top: 0;
+}
+
+.history-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #444;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.history-actions {
+  display: flex;
+  align-items: center;
+}
+
+.clear-history {
+  color: #ff9f0a;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+}
+
+.close-history {
+  color: #ff9f0a;
+  font-size: 28rpx;
+  padding: 10rpx 0 10rpx 20rpx;
+  margin-left: 10rpx;
+}
+
+.history-list {
+  flex: 1;
+  padding: 0 20rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.history-item {
+  padding: 20rpx 15rpx;
+  border-bottom: 1rpx solid #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.history-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.history-expression {
+  color: #999;
+  font-size: 28rpx;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 6rpx;
+}
+
+.history-result {
+  color: #fff;
+  font-size: 42rpx;
+  text-align: left;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+
+.no-history {
+  color: #666;
+  text-align: center;
+  padding: 40rpx 0;
+  font-size: 28rpx;
 }
 
 /* 结果显示区域 */
@@ -76,4 +215,4 @@
   border-radius: 75rpx;
   justify-content: flex-start;
   padding-left: 50rpx;
-} 
+}
