@@ -200,6 +200,71 @@ Page({
     }
   },
 
+  // 计算结果
+  calculate: function(num1, num2, operator) {
+    let result;
+    
+    switch (operator) {
+      case '+':
+        result = num1 + num2;
+        break;
+      case '-':
+        result = num1 - num2;
+        break;
+      case '×':
+        result = num1 * num2;
+        break;
+      case '÷':
+        if (num2 === 0) {
+          return 'Error';
+        }
+        result = num1 / num2;
+        break;
+      default:
+        return num2;
+    }
+    
+    // 处理精度问题
+    // 如果结果是整数，直接返回整数
+    // 如果是小数，保留合适的小数位数
+    if (Number.isInteger(result)) {
+      return result.toString();
+    } else {
+      // 转换为字符串，避免科学计数法
+      const resultStr = result.toString();
+      
+      // 如果小数部分超过10位，则截取到10位
+      if (resultStr.includes('.') && resultStr.split('.')[1].length > 10) {
+        return result.toFixed(10).replace(/\.?0+$/, '');
+      }
+      
+      // 移除末尾多余的0
+      return resultStr.replace(/\.?0+$/, '');
+    }
+  },
+
+  // 格式化数字，处理显示问题
+  formatNumber: function(num) {
+    if (num === 'Error') return num;
+    
+    // 处理科学计数法
+    if (num.includes('e')) {
+      const parts = num.split('e');
+      const base = parseFloat(parts[0]);
+      const exponent = parseInt(parts[1]);
+      
+      if (exponent > 0) {
+        // 大数处理
+        return base * Math.pow(10, exponent);
+      } else {
+        // 小数处理
+        return base * Math.pow(10, exponent);
+      }
+    }
+    
+    return num;
+  },
+
   // 点击操作符按钮
   tapOperator: function(e) {
     const operator = e.currentTarget.dataset.operator;
@@ -291,62 +356,80 @@ Page({
         // 构建表达式
         const fullExpression = `${firstNumber} ${lastOperator} ${secondNumber}`;
         const calculatedResult = this.calculate(parseFloat(firstNumber), parseFloat(secondNumber), lastOperator);
+        const formattedResult = this.formatNumber(calculatedResult.toString());
         
         // 保存到历史记录
-        this.saveHistory(fullExpression, calculatedResult.toString());
+        this.saveHistory(fullExpression, formattedResult);
         
         this.setData({
-          result: calculatedResult.toString(),
-          firstNumber: calculatedResult.toString(),
+          result: formattedResult,
+          firstNumber: formattedResult,
           secondNumber: '',
           lastOperator: '',
           isNewInput: true,
           isCalculated: true,
           expression: fullExpression
         });
+      } else if (firstNumber && !secondNumber && !lastOperator) {
+        // 只有一个数字，没有操作符和第二个数字的情况
+        // 直接返回该数字
+        this.setData({
+          result: firstNumber,
+          isCalculated: true
+        });
       }
       return;
     }
     
     // 其他操作符 (+, -, ×, ÷)
+    if (isCalculated) {
+      // 如果已经计算过结果，使用当前结果作为第一个数字，开始新的计算
+      this.setData({
+        firstNumber: result,
+        secondNumber: '',
+        lastOperator: operator,
+        isNewInput: true,
+        isCalculated: false
+      });
+      return;
+    }
+    
     if (firstNumber && secondNumber && lastOperator) {
       // 如果已经有两个数字和一个操作符，先计算结果
       const fullExpression = `${firstNumber} ${lastOperator} ${secondNumber}`;
       const calculatedResult = this.calculate(parseFloat(firstNumber), parseFloat(secondNumber), lastOperator);
+      const formattedResult = this.formatNumber(calculatedResult.toString());
       
       // 保存到历史记录
-      this.saveHistory(fullExpression, calculatedResult.toString());
+      this.saveHistory(fullExpression, formattedResult);
       
       this.setData({
-        result: calculatedResult.toString(),
-        firstNumber: calculatedResult.toString(),
+        result: formattedResult,
+        firstNumber: formattedResult,
         secondNumber: '',
         lastOperator: operator,
         isNewInput: true,
         expression: fullExpression
       });
-    } else {
-      // 设置操作符
+    } else if (firstNumber && !secondNumber) {
+      // 只有第一个数字，设置操作符
       this.setData({
         lastOperator: operator,
         isNewInput: true
       });
-    }
-  },
-
-  // 计算结果
-  calculate: function(num1, num2, operator) {
-    switch (operator) {
-      case '+':
-        return num1 + num2;
-      case '-':
-        return num1 - num2;
-      case '×':
-        return num1 * num2;
-      case '÷':
-        return num2 !== 0 ? num1 / num2 : 'Error';
-      default:
-        return num2;
+    } else if (!firstNumber && result !== '0') {
+      // 没有第一个数字，但有结果，使用结果作为第一个数字
+      this.setData({
+        firstNumber: result,
+        lastOperator: operator,
+        isNewInput: true
+      });
+    } else {
+      // 其他情况，设置操作符
+      this.setData({
+        lastOperator: operator,
+        isNewInput: true
+      });
     }
   }
 }) 
