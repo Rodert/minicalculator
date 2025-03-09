@@ -59,35 +59,17 @@
   display: flex;
   align-items: center;
   padding: 30rpx;
-  border-bottom: 1rpx solid #f0f0f0;
-}
-
-.function-item:last-child {
-  border-bottom: none;
 }
 
 .function-icon {
   width: 40rpx;
   height: 40rpx;
   margin-right: 20rpx;
-  background-color: #4CAF50;
   border-radius: 8rpx;
-}
-
-.history-icon {
-  background-color: #4CAF50;
-}
-
-.feedback-icon {
-  background-color: #2196F3;
 }
 
 .about-icon {
   background-color: #FF9800;
-}
-
-.settings-icon {
-  background-color: #9E9E9E;
 }
 
 .function-text {

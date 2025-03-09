@@ -11,29 +11,9 @@
   <!-- 功能列表 -->
   <view class="function-list">
     <view class="function-group">
-      <view class="function-item" bindtap="handleFunction" data-type="history">
-        <view class="function-icon history-icon"></view>
-        <view class="function-text">计算历史</view>
-        <view class="arrow"></view>
-      </view>
-      
-      <view class="function-item" bindtap="handleFunction" data-type="feedback">
-        <view class="function-icon feedback-icon"></view>
-        <view class="function-text">意见反馈</view>
-        <view class="arrow"></view>
-      </view>
-      
       <view class="function-item" bindtap="handleFunction" data-type="about">
         <view class="function-icon about-icon"></view>
         <view class="function-text">关于我们</view>
-        <view class="arrow"></view>
-      </view>
-    </view>
-    
-    <view class="function-group">
-      <view class="function-item" bindtap="handleFunction" data-type="settings">
-        <view class="function-icon settings-icon"></view>
-        <view class="function-text">设置</view>
         <view class="arrow"></view>
       </view>
     </view>
