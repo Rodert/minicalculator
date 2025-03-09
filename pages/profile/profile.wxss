@@ -1,0 +1,118 @@
+/**profile.wxss**/
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  padding: 0;
+  position: relative;
+}
+
+/* 用户信息区域 */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+
+.avatar-container {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
+  background-color: #e0e0e0;
+}
+
+.user-name {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 功能列表 */
+.function-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.function-group {
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.function-item:last-child {
+  border-bottom: none;
+}
+
+.function-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  background-color: #4CAF50;
+  border-radius: 8rpx;
+}
+
+.history-icon {
+  background-color: #4CAF50;
+}
+
+.feedback-icon {
+  background-color: #2196F3;
+}
+
+.about-icon {
+  background-color: #FF9800;
+}
+
+.settings-icon {
+  background-color: #9E9E9E;
+}
+
+.function-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid #ccc;
+  border-right: 2rpx solid #ccc;
+  transform: rotate(45deg);
+}
+
+/* 底部版本信息 */
+.footer {
+  padding: 40rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.version {
+  font-size: 24rpx;
+  color: #999;
+} 

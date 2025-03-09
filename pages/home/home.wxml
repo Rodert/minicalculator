@@ -1,0 +1,24 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="grid-container">
+    <!-- 通用计算器 -->
+    <view class="grid-item" bindtap="navigateToCalculator" data-type="normal">
+      <text class="item-text">通用</text>
+    </view>
+    
+    <!-- 亲戚称呼计算器 -->
+    <view class="grid-item" bindtap="navigateToCalculator" data-type="relative">
+      <text class="item-text">亲戚称呼</text>
+    </view>
+    
+    <!-- 单位换算计算器 -->
+    <view class="grid-item" bindtap="navigateToCalculator" data-type="unit">
+      <text class="item-text">单位换算</text>
+    </view>
+    
+    <!-- 房贷计算器 -->
+    <view class="grid-item" bindtap="navigateToCalculator" data-type="mortgage">
+      <text class="item-text">房贷计算</text>
+    </view>
+  </view>
+</view> 

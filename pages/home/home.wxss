@@ -1,0 +1,36 @@
+/**home.wxss**/
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  padding: 0;
+  position: relative;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.section-title {
+  display: none;
+}
+
+.grid-item {
+  width: 50%;
+  height: 33.33vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: 0.5px solid #f0f0f0;
+  box-sizing: border-box;
+}
+
+.item-text {
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+}

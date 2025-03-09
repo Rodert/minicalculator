@@ -1,12 +1,30 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/home/home",
+    "pages/index/index",
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000000",
-    "navigationBarTitleText": "计算器",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "计算器大全",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
