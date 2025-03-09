@@ -1,0 +1,43 @@
+<!--pages/relative/relative.wxml-->
+<view class="container">
+  <!-- 结果显示区域 -->
+  <view class="result-area">
+    <view class="relation-path">{{relationPath}}</view>
+    <view class="result">{{result}}</view>
+  </view>
+  
+  <!-- 操作区域 -->
+  <view class="operation-area">
+    <!-- 第一行按钮 -->
+    <view class="button-row">
+      <view class="button function-button {{activeButton === 'clear' ? 'button-active' : ''}}" bindtap="handleClear">清除</view>
+      <view class="button function-button {{activeButton === 'back' ? 'button-active' : ''}}" bindtap="handleBack">回退</view>
+      <view class="button relation-button {{activeButton === 'husband' ? 'button-active' : ''}}" data-relation="husband" bindtap="handleRelation">夫</view>
+      <view class="button relation-button {{activeButton === 'wife' ? 'button-active' : ''}}" data-relation="wife" bindtap="handleRelation">妻</view>
+    </view>
+    
+    <!-- 第二行按钮 -->
+    <view class="button-row">
+      <view class="button relation-button {{activeButton === 'father' ? 'button-active' : ''}}" data-relation="father" bindtap="handleRelation">爸</view>
+      <view class="button relation-button {{activeButton === 'mother' ? 'button-active' : ''}}" data-relation="mother" bindtap="handleRelation">妈</view>
+      <view class="button relation-button {{activeButton === 'elder_brother' ? 'button-active' : ''}}" data-relation="elder_brother" bindtap="handleRelation">哥</view>
+      <view class="button relation-button {{activeButton === 'younger_brother' ? 'button-active' : ''}}" data-relation="younger_brother" bindtap="handleRelation">弟</view>
+    </view>
+    
+    <!-- 第三行按钮 -->
+    <view class="button-row">
+      <view class="button relation-button {{activeButton === 'son' ? 'button-active' : ''}}" data-relation="son" bindtap="handleRelation">子</view>
+      <view class="button relation-button {{activeButton === 'daughter' ? 'button-active' : ''}}" data-relation="daughter" bindtap="handleRelation">女</view>
+      <view class="button relation-button {{activeButton === 'elder_sister' ? 'button-active' : ''}}" data-relation="elder_sister" bindtap="handleRelation">姐</view>
+      <view class="button relation-button {{activeButton === 'younger_sister' ? 'button-active' : ''}}" data-relation="younger_sister" bindtap="handleRelation">妹</view>
+    </view>
+    
+    <!-- 第四行按钮 -->
+    <view class="button-row">
+      <view class="button of-button {{activeButton === 'of' ? 'button-active' : ''}}" data-relation="of" bindtap="handleRelation">的</view>
+      <view style="flex: 1;"></view>
+      <view style="flex: 1;"></view>
+      <view class="button calculate-button {{activeButton === 'calculate' ? 'button-active' : ''}}" bindtap="handleCalculate">=</view>
+    </view>
+  </view>
+</view> 

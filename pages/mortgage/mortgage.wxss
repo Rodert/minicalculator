@@ -1,0 +1,273 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 贷款类型选择器 */
+.loan-type-selector {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.loan-type {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.loan-type.active {
+  color: #fff;
+  background-color: #007aff;
+}
+
+/* 输入区域 */
+.input-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.input-group:last-child {
+  border-bottom: none;
+}
+
+.input-group .label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.input-group input {
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding: 0 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+
+.picker {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding: 0 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radio {
+  margin-right: 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+/* 计算按钮 */
+.calculate-button {
+  background-color: #007aff;
+  color: #fff;
+  text-align: center;
+  padding: 24rpx 0;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  margin: 40rpx 0;
+}
+
+.calculate-button:active {
+  opacity: 0.8;
+}
+
+/* 计算结果展示 */
+.result-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.value {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 历史记录面板 */
+.history-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.history-panel.show {
+  transform: translateY(0);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.history-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.history-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.clear-history,
+.close-history {
+  font-size: 28rpx;
+  color: #007aff;
+}
+
+.history-list {
+  background-color: #fff;
+  height: calc(100% - 90rpx);
+  padding: 0 20rpx;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 30rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.history-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.history-loan-type {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.history-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.history-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.history-info text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.history-result {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.history-result text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.no-history {
+  text-align: center;
+  padding: 40rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 保存按钮 */
+.save-button {
+  background-color: #34c759;
+  color: #fff;
+  text-align: center;
+  padding: 24rpx 0;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+}
+
+.save-button:active {
+  opacity: 0.8;
+}
+
+.view-history {
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #007aff;
+  margin-top: 20rpx;
+}
+
+/* 保存图片按钮 */
+.save-image-button {
+  background-color: #ff9500;
+  color: #fff;
+  text-align: center;
+  padding: 24rpx 0;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+}
+
+.save-image-button:active {
+  opacity: 0.8;
+}

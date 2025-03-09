@@ -431,5 +431,12 @@ Page({
         isNewInput: true
       });
     }
+  },
+  handleRelativeButton: function() {
+    wx.showToast({
+      title: '功能开发中',
+      icon: 'none',
+      duration: 2000
+    })
   }
-}) 
+})

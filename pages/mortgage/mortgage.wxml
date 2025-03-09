@@ -1,0 +1,98 @@
+<view class="container">
+  <view class="loan-type-selector">
+    <view class="loan-type {{loanType === 'commercial' ? 'active' : ''}}" bindtap="switchLoanType" data-type="commercial">商业贷款</view>
+    <view class="loan-type {{loanType === 'fund' ? 'active' : ''}}" bindtap="switchLoanType" data-type="fund">公积金贷款</view>
+    <view class="loan-type {{loanType === 'combined' ? 'active' : ''}}" bindtap="switchLoanType" data-type="combined">组合贷款</view>
+  </view>
+
+  <view class="input-section">
+    <block wx:if="{{loanType === 'commercial' || loanType === 'combined'}}">
+      <view class="input-group">
+        <text class="label">商业贷款金额（万元）</text>
+        <input type="digit" value="{{commercialAmount}}" bindinput="handleCommercialAmountInput" placeholder="请输入商业贷款金额"/>
+      </view>
+      <view class="input-group">
+        <text class="label">商业贷款利率（%）</text>
+        <input type="digit" value="{{commercialRate}}" bindinput="handleCommercialRateInput" placeholder="请输入商业贷款利率"/>
+      </view>
+      <view class="input-group">
+        <text class="label">商业贷款利率倍数</text>
+        <input type="digit" value="{{commercialRateFactor}}" bindinput="handleCommercialRateFactorInput" placeholder="请输入商业贷款利率倍数"/>
+      </view>
+    </block>
+
+    <block wx:if="{{loanType === 'fund' || loanType === 'combined'}}">
+      <view class="input-group">
+        <text class="label">公积金贷款金额（万元）</text>
+        <input type="digit" value="{{fundAmount}}" bindinput="handleFundAmountInput" placeholder="请输入公积金贷款金额"/>
+      </view>
+      <view class="input-group">
+        <text class="label">公积金贷款利率（%）</text>
+        <input type="digit" value="{{fundRate}}" bindinput="handleFundRateInput" placeholder="请输入公积金贷款利率"/>
+      </view>
+      <view class="input-group">
+        <text class="label">公积金贷款利率倍数</text>
+        <input type="digit" value="{{fundRateFactor}}" bindinput="handleFundRateFactorInput" placeholder="请输入公积金贷款利率倍数"/>
+      </view>
+    </block>
+
+    <view class="input-group">
+      <text class="label">按揭年数</text>
+      <picker bindchange="selectLoanYears" value="{{loanYears}}" range="{{yearOptions}}">
+        <view class="picker">
+          {{loanYears}}年
+        </view>
+      </picker>
+    </view>
+
+    <view class="input-group">
+      <text class="label">还款方式</text>
+      <radio-group class="radio-group" bindchange="selectRepaymentMethod">
+        <label class="radio">
+          <radio value="equal" checked="{{repaymentMethod === 'equal'}}"/>等额本息
+        </label>
+        <label class="radio">
+          <radio value="principal" checked="{{repaymentMethod === 'principal'}}"/>等额本金
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class="calculate-button" bindtap="calculateLoan">开始计算</view>
+
+  <view class="result-section" wx:if="{{showResult}}">
+    <block wx:if="{{repaymentMethod === 'equal'}}">
+      <view class="result-item">
+        <text class="label">每月还款</text>
+        <text class="value">¥{{monthlyPayment}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="result-item">
+        <text class="label">首月还款</text>
+        <text class="value">¥{{firstMonthPayment}}</text>
+      </view>
+      <view class="result-item">
+        <text class="label">末月还款</text>
+        <text class="value">¥{{lastMonthPayment}}</text>
+      </view>
+      <view class="result-item">
+        <text class="label">每月递减</text>
+        <text class="value">¥{{monthlyDecrement}}</text>
+      </view>
+    </block>
+    <view class="result-item">
+      <text class="label">支付利息</text>
+      <text class="value">¥{{totalInterest}}</text>
+    </view>
+    <view class="result-item">
+      <text class="label">还款总额</text>
+      <text class="value">¥{{totalPayment}}</text>
+    </view>
+    
+    <view class="save-image-button" bindtap="saveAsImage">保存结果为图片</view>
+  </view>
+  
+  <!-- 用于生成图片的画布，设置为不可见 -->
+  <canvas canvas-id="resultCanvas" style="width: 750rpx; height: 1000rpx; position: fixed; top: -9999px;" id="resultCanvas"></canvas>
+</view>

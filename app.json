@@ -2,7 +2,9 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/relative/relative",
+    "pages/mortgage/mortgage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,4 +30,4 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
-} 
+}

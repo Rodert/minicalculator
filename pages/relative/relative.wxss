@@ -1,0 +1,79 @@
+/**relative.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f0f4f8;
+}
+
+/* 结果显示区域 */
+.result-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #7a8a9c;
+  color: white;
+  padding: 20px;
+}
+
+.relation-path {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* 操作区域 */
+.operation-area {
+  flex: 2;
+}
+
+/* 按钮网格 - 无缝布局 */
+.button-row {
+  display: flex;
+  width: 100%;
+  height: 25%; /* 每行占四分之一高度 */
+}
+
+.button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  font-size: 18px;
+  border: none; /* 移除边框 */
+  margin: 0; /* 移除外边距 */
+  padding: 0; /* 移除内边距 */
+}
+
+/* 按钮激活状态 */
+.button-active {
+  background-color: #e0e0e0;
+}
+
+/* 功能按钮样式 */
+.function-button {
+  background-color: #e8e8e8;
+}
+
+/* 计算按钮样式 */
+.calculate-button {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* 关系按钮样式 */
+.relation-button {
+  background-color: #f5f5f5;
+}
+
+/* 连接词按钮样式 */
+.of-button {
+  background-color: #e0e0e0;
+} 
